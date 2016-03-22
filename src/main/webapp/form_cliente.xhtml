@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Alteração de Cliente</title>
+	
+	<style>
+		label{
+			color:white;
+			font-weight:bold
+		}
+		input{
+			background:LightGray;
+			color:black;
+			font-weight:bold
+
+		}
+	
+	</style>
+</h:head>
+
+<h:body>
+
+	<h:form >
+		<div align="left">
+			<h2>Cadastro de Cliente</h2>
+
+			<h:panelGrid columns="2" border="2" bgcolor="DimGrey">
+				<h:outputLabel value="Nome" style="color:white" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_nome}" requiredMessage="Por favor, insira o nome"/>
+
+				<h:outputLabel value="CPF" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_cpf}" />
+
+				<h:outputLabel value="RG" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_rg}" />
+
+				
+				<h:outputLabel value="Data de nascimento" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_data_nasc}" >
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				
+				<h:outputLabel value="Rua" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_rua}" />
+
+				<h:outputLabel value="Bairro" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_bairro}" />
+
+				<h:outputLabel value="Cidade" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_cidade}" />
+
+				
+				<h:outputLabel value="UF" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_uf}" />
+
+				<h:outputLabel value="CEP" />
+				<h:inputText value="#{clienteCtrl.cliente.cli_cep}" />
+			</h:panelGrid>
+		</div>
+		<h:commandButton value="Salvar" action="#{clienteCtrl.actionGravar}" />
+		<h:commandButton value="Voltar" action="#{clienteCtrl.actionInserir}" />
+	</h:form>
+</h:body>
+</html>

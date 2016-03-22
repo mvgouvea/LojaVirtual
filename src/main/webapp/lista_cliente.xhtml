@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Cliente</title>
+</h:head>
+
+<h:body>
+	<h:panelGrid border="2">
+
+		<h:form>
+			<h:dataTable value="#{clienteCtrl.listagem}" var="objCliente">
+				<f:facet name="header">
+					<div align="center">
+						<h2>Lista de Clientes</h2>
+					</div>
+				</f:facet>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Código " />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_id}" />
+					<hr />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Nome" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_nome}" />
+					<hr />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="CPF" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_cpf}" />
+					<hr />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="RG" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_rg}" />
+				</h:column>
+				
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data de Nascimento" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_data_nasc}" />
+				</h:column>
+				
+				<!-- ENDEREÇO -->
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_rua}" />
+				</h:column>
+				
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Bairro" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_bairro}" />
+				</h:column>
+				
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Cidade" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_cidade}" />
+				</h:column>
+				
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="UF" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_uf}" />
+				</h:column>
+				
+					<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="CEP" />
+					</f:facet>
+					<h:outputText value="#{objCliente.cli_cep}" />
+				</h:column>
+				
+				<h:column>
+					<h:commandButton value="excluir"
+						action="#{clienteCtrl.actionExcluir}" style="font-size:large">
+						<f:setPropertyActionListener value="#{objCliente}"
+							target="#{clienteCtrl.cliente}" />
+					</h:commandButton>
+				</h:column>
+				<h:column>
+					<h:commandButton value="editar"
+						action="#{clienteCtrl.actionAlterar(objCliente)}"
+						style="font-size:large">
+						<f:setPropertyActionListener value="#{objCliente}"
+							target="#{clienteCtrl.cliente}" />
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+			<div align="right">
+				<h:commandButton value="Salvar" action="#{clienteCtrl.actionGravar}"
+					style="font-size:large" />
+				<h:commandButton value="Voltar" action="index"
+					style="font-size:large" />
+			</div>
+		</h:form>
+	</h:panelGrid>
+</h:body>
+</html>

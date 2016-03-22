@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<title>Cadastro de Produto</title>
+</h:head>
+
+<h:body>
+	
+	<h:form>
+		<h2>Cadastro de Produto</h2>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{produtoCtrl.produto.nome}" />
+
+			<h:outputLabel value="Preço" />
+			<h:inputText value="#{produtoCtrl.produto.preco}" />
+		</h:panelGrid>
+		<h:commandButton value="Salvar" action="#{produtoCtrl.actionGravar}" />
+	</h:form>
+</h:body>
+</html>
