@@ -65,7 +65,7 @@
 				</h:commandButton>
 			</h:column>
 			<h:column>
-				<h:commandButton value="editar" action="#{produtoCtrl.actionAlterar}">
+				<h:commandButton value="editar" action="#{produtoCtrl.actionAlterar(objProduto)}">
 					<f:setPropertyActionListener value="#{objProduto}" target="#{produtoCtrl.produto}" />
 				</h:commandButton>
 			</h:column>

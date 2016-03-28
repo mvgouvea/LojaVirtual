@@ -5,17 +5,18 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
 import persistencia.ClienteDAO;
 import beans.Cliente;
 
+
 @ManagedBean
 @SessionScoped
-public class ClienteCtrl implements Serializable {
+public class ClienteCtrl implements Serializable{
+
 
 	private static final long serialVersionUID = 1L;
-
-	private Cliente cliente = new Cliente();
+        
+	private Cliente cliente;
 
 	public Cliente getCliente() {
 		return cliente;
@@ -30,7 +31,7 @@ public class ClienteCtrl implements Serializable {
 	}
 
 	public String actionGravar() {
-		if (cliente.getCli_id() == null) {
+		if (cliente.getId() == 0) {
 			ClienteDAO.inserir(cliente);
 			return actionInserir();
 		} else {
@@ -45,12 +46,13 @@ public class ClienteCtrl implements Serializable {
 	}
 
 	public String actionExcluir() {
-		ClienteDAO.excluir(cliente);
+	       ClienteDAO.excluir(cliente);
 		return "lista_cliente";
 	}
 
-	public String actionAlterar(Cliente c) {
-		cliente = c;
+	public String actionAlterar(Cliente cl) {
+		cliente = cl;
 		return "form_cliente";
 	}
+	
 }

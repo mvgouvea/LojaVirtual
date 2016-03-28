@@ -7,116 +7,57 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>Cliente</title>
+	<title>Lista_cliente</title>
 </h:head>
-
 <h:body>
-	<h:panelGrid border="2">
+	<h:form>
+		<div align="center">
+			<h:commandLink value="Cadastrar Cliente"
+				action="#{clienteCtrl.actionInserir}"  />
 
-		<h:form>
-			<h:dataTable value="#{clienteCtrl.listagem}" var="objCliente">
+			<h:dataTable value="#{clienteCtrl.listagem}" var="cliente">
 				<f:facet name="header">
-					<div align="center">
-						<h2>Lista de Clientes</h2>
-					</div>
+					<h:outputLabel value="Lista de Clientes" />
 				</f:facet>
-
+				<p></p>
 				<h:column>
 					<f:facet name="header">
-						<h:outputLabel value="Código " />
+						<h:outputLabel value="Matricula" />
 					</f:facet>
-					<h:outputText value="#{objCliente.cli_id}" />
-					<hr />
+					<h:outputLabel value="#{cliente.id}" />
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputLabel value="Nome" />
 					</f:facet>
-					<h:outputText value="#{objCliente.cli_nome}" />
-					<hr />
+					<h:outputLabel value="#{cliente.nome}" />
 				</h:column>
-
 				<h:column>
 					<f:facet name="header">
 						<h:outputLabel value="CPF" />
 					</f:facet>
-					<h:outputText value="#{objCliente.cli_cpf}" />
-					<hr />
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="RG" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_rg}" />
-				</h:column>
-				
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="Data de Nascimento" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_data_nasc}" />
-				</h:column>
-				
-				<!-- ENDEREÇO -->
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_rua}" />
-				</h:column>
-				
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="Bairro" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_bairro}" />
-				</h:column>
-				
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="Cidade" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_cidade}" />
-				</h:column>
-				
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="UF" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_uf}" />
-				</h:column>
-				
-					<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="CEP" />
-					</f:facet>
-					<h:outputText value="#{objCliente.cli_cep}" />
-				</h:column>
-				
-				<h:column>
-					<h:commandButton value="excluir"
-						action="#{clienteCtrl.actionExcluir}" style="font-size:large">
-						<f:setPropertyActionListener value="#{objCliente}"
-							target="#{clienteCtrl.cliente}" />
-					</h:commandButton>
+					<h:outputLabel value="#{cliente.cpf}" />
 				</h:column>
 				<h:column>
-					<h:commandButton value="editar"
-						action="#{clienteCtrl.actionAlterar(objCliente)}"
-						style="font-size:large">
-						<f:setPropertyActionListener value="#{objCliente}"
-							target="#{clienteCtrl.cliente}" />
-					</h:commandButton>
+					<f:facet name="header">
+						<h:outputLabel value="E-mail" />
+					</f:facet>
+					<h:outputLabel value="#{cliente.email}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="Alterar"
+						action="#{clienteCtrl.actionAlterar(cliente)}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="Excluir" style="color:red" action="#{clienteCtrl.actionExcluir}">
+						<f:setPropertyActionListener value="#{cliente}" target="#{clienteCtrl.cliente}"></f:setPropertyActionListener>
+					</h:commandLink>
 				</h:column>
 			</h:dataTable>
-			<div align="right">
-				<h:commandButton value="Salvar" action="#{clienteCtrl.actionGravar}"
-					style="font-size:large" />
-				<h:commandButton value="Voltar" action="index"
-					style="font-size:large" />
-			</div>
-		</h:form>
-	</h:panelGrid>
+		</div>
+	</h:form>
 </h:body>
+
+
 </html>
