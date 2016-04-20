@@ -7,12 +7,12 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>Cadastro_Cliente</title>
+	<title>Cadastro Cliente</title>
 </h:head>
 <h:body>
 	<h:form>
-		<div align="center">
-			<h:panelGrid columns="2">
+		<div align="left">
+			<h:panelGrid columns="2" border="2">
 				<f:facet name="header">
 					<h:outputLabel value="Cadastro de Clientes" />
 				</f:facet>
@@ -41,10 +41,38 @@
 				<h:inputText value="#{clienteCtrl.cliente.email}" />
 				<h:outputLabel value="Senha de acessa" />
 				<h:inputText value="#{clienteCtrl.cliente.senha}" />
+
 			</h:panelGrid>
+			
+			<h:dataTable value="#{clienteCtrl.cliente.fones}" var="fone" rules="rows">
+					<f:facet name="header">
+						<h:commandButton value="Adicionar fone" action="#{clienteCtrl.actionInserirFone}" />
+					</f:facet>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Número" />
+						</f:facet>
+						<h:inputText value="#{fone.numero}" maxlength="20" size="20" label="Número" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Descrição" />
+						</f:facet>
+						<h:inputText value="#{fone.descricao}" size="20" maxlength="30" label="Descrição" />
+					</h:column>
+					
+					<h:column>
+						<h:commandLink value="Remover" />
+					</h:column>
+					
+				</h:dataTable>
 			<h:commandButton value="Lista" action="lista_cliente" />
 			<h:commandButton value="Gravar" action="#{clienteCtrl.actionGravar}" />
 		</div>
 	</h:form>
+	
+	
 </h:body>
 </html>

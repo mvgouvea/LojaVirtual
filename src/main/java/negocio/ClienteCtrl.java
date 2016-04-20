@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import persistencia.ClienteDAO;
 import beans.Cliente;
+import beans.Fone;
 
 
 @ManagedBean
@@ -17,6 +19,16 @@ public class ClienteCtrl implements Serializable{
 	private static final long serialVersionUID = 1L;
         
 	private Cliente cliente;
+	private Fone fone;
+	
+
+	public Fone getFone() {
+		return fone;
+	}
+
+	public void setFone(Fone fone) {
+		this.fone = fone;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -52,6 +64,19 @@ public class ClienteCtrl implements Serializable{
 
 	public String actionAlterar(Cliente cl) {
 		cliente = cl;
+		return "form_cliente";
+	}
+	
+	public String actionInserirFone(){
+		Fone fone = new Fone();
+		fone.setCliente(cliente);
+		cliente.getFones().add(fone);
+		return "form_cliente";
+	}
+	
+	public String actionExcluirFone() {
+		//
+
 		return "form_cliente";
 	}
 	

@@ -9,7 +9,7 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">12345678</property>
+		<property name="hibernate.connection.password">123456</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/BDLojaVirtual</property>
 
 		<!-- Usando as configurações do CP30 para pool de conexões -->
@@ -28,6 +28,7 @@
 		<!-- Mapeamento de Classe -->
 		<mapping class="beans.Produto"/>
 		<mapping class="beans.Cliente"/>
+		<mapping class="beans.Fone"/>
 	</session-factory>
 </hibernate-configuration>
 	

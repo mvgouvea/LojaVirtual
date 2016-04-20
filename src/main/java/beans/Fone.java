@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,33 +15,50 @@ public class Fone {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer fon_id;
-	@Column(name = "fon_numero")
-	private String fon_numero;
-	@Column(name = "fon_descricao")
-	private String fon_descricao;
+	@Column(name = "fon_id")
+	private Integer id;
+	@Column(name = "fon_numero", length = 20, nullable = true)
+	private String numero;
+	@Column(name = "fon_descricao", length = 20, nullable = true)
+	private String descricao;
 
-	public Integer getFon_id() {
-		return fon_id;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setFon_id(Integer fon_id) {
-		this.fon_id = fon_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getFon_numero() {
-		return fon_numero;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setFon_numero(String fon_numero) {
-		this.fon_numero = fon_numero;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
-	public String getFon_descricao() {
-		return fon_descricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setFon_descricao(String fon_descricao) {
-		this.fon_descricao = fon_descricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="cli_id")
+	private Cliente cliente;
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	
+	
+
 }

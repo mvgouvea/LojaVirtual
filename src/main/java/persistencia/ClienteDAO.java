@@ -23,7 +23,7 @@ public class ClienteDAO implements Serializable {
 	public static void alterar(Cliente cliente){
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Transaction t = sessao.beginTransaction();
-		sessao.update(cliente);
+		sessao.merge(cliente);
 		t.commit();
 	}
 	

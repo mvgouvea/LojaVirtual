@@ -12,8 +12,7 @@
 <h:body>
 	<h:form>
 		<div align="center">
-			<h:commandLink value="Cadastrar Cliente"
-				action="#{clienteCtrl.actionInserir}"  />
+			
 
 			<h:dataTable value="#{clienteCtrl.listagem}" var="cliente">
 				<f:facet name="header">
@@ -55,6 +54,12 @@
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
+		</div>
+		<hr></hr>
+		<div align="right">
+		<h:commandButton value="Novo"
+				action="#{clienteCtrl.actionInserir}"  />
+			<h:commandButton value="Cancelar" action="index" />
 		</div>
 	</h:form>
 </h:body>
