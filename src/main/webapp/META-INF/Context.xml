@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="true">
+	<Resource name="jdbc/BDLojaVirtual"
+	auth="Container"
+	type="javax.sql.DataSouce"
+	maxActive="100"
+	maxIdle="30"
+	maxWait="10000"
+	username="postgres"
+	password="123"
+	url="jdbc:postgresql://localhost:5432/BDLojaVirtual?autoReconnet=true"/>
+</Context>

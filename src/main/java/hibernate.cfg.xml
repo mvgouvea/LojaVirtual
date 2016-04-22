@@ -3,15 +3,22 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
+
+
 <hibernate-configuration>
+	
 	<session-factory>
+		
 		<!-- Configuração da conexão com o banco POSTGRESQL e DIALETO -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<!-- <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">123456</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/BDLojaVirtual</property>
-
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/BDLojaVirtual</property> -->
+		
+		<!-- Spring utilizara a mesma conexão do hibernate -->
+		<property name="connection.datasource">java:/comp/env/jdbc/BDLojaVirtual</property>
+		
 		<!-- Usando as configurações do CP30 para pool de conexões -->
 		<property name="c3po.min_size" >5"</property>
 		<property name="c3po.max_size" >20"</property>

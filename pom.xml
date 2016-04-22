@@ -24,12 +24,13 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1201-jdbc41</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -41,11 +42,56 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.2.12</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.4.Final</version>
 		</dependency>
+
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>facelets-taglib-jsf20-spring-3</artifactId>
+			<version>0.5</version>
+		</dependency>
 	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>jvnet-nexus-releases</id>
+			<name>jvnet-nexus-releases</name>
+			<url>https://maven.java.net/content/repositories/releases/</url>
+		</repository>
+
+		<repository>
+			<id>org.springframework.security.taglibs.facelets</id>
+			<url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
+		</repository>
+	</repositories>
+
 </project>

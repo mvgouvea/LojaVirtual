@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Área administrativa</title>
+</h:head>
+
+<h:body>
+	<h1>
+		<h:outputText value="Área administrativa" />
+	</h1>
+	
+	<h:form>
+		<lu>
+			<li><h:commandButton value="Produto" action="/admin/lista_produto" /> </li>
+			<li><h:commandButton value="Cliente" action="/admin/lista_cliente" /> </li>
+		
+			<li> 
+				<h:outputLink
+					onclick="document.location='#{request.contextPath}/j_spring_security_logout'">
+					Logout
+				</h:outputLink> </li>
+		</lu>
+	</h:form>
+</h:body>
+</html>

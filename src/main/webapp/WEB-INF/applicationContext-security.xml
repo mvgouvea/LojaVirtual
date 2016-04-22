@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/admin/**" access="ROLE_ADMINSTRADOR" />
+		<form-login login-page="/publico/login.xhtml"
+			always-use-default-target="true" default-target-url="/admin/principal.xhtml"
+			authentication-failure-url="/publico/login.xhtml?login_erro=1" />
+		<logout logout-success-url="/publico/index.xhtml" />
+		<remember-me />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="BDLojaVirtualDataSource"
+				authorities-by-username-query="SELECT cli_nome, 'ROLE_ADIMINISTRADOR'
+																	FROM cliente
+																	WHERE cli_email = ?"
+				users-by-username-query="SELECT cli_email, cli_senha, '1' FROM cliente WHERE cli_email = ?" />
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
