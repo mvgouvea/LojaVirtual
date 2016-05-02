@@ -1,3 +1,10 @@
+create table produto(
+	pro_id serial primary key
+	pro_nome varchar(30),
+	pro_preco float
+);
+
+
 create table cliente(
 	cli_id	serial primary key,
 	cli_nome	varchar(60),

@@ -10,7 +10,7 @@
 		<intercept-url pattern="/admin/**" access="ROLE_ADMINSTRADOR" />
 		<form-login login-page="/publico/login.xhtml"
 			always-use-default-target="true" default-target-url="/admin/principal.xhtml"
-			authentication-failure-url="/publico/login.xhtml?login_erro=1" />
+			authentication-failure-url="/publico/login.xhtml?login_error=1" />
 		<logout logout-success-url="/publico/index.xhtml" />
 		<remember-me />
 	</http>
@@ -18,7 +18,7 @@
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="BDLojaVirtualDataSource"
-				authorities-by-username-query="SELECT cli_nome, 'ROLE_ADIMINISTRADOR'
+				authorities-by-username-query="SELECT cli_nome, 'ROLE_ADMINISTRADOR'
 																	FROM cliente
 																	WHERE cli_email = ?"
 				users-by-username-query="SELECT cli_email, cli_senha, '1' FROM cliente WHERE cli_email = ?" />

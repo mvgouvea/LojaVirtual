@@ -31,6 +31,9 @@ public class ClienteCtrl implements Serializable{
 	}
 
 	public Cliente getCliente() {
+		if (cliente == null) {
+			cliente = new Cliente(); 
+		}
 		return cliente;
 	}
 
@@ -48,7 +51,7 @@ public class ClienteCtrl implements Serializable{
 			return actionInserir();
 		} else {
 			ClienteDAO.alterar(cliente);
-			return "lista_cliente";
+			return "form_cliente";
 		}
 	}
 

@@ -21,7 +21,7 @@ public class Cliente {
 	@Column(name = "cli_rg")
 	private String rg;
 	@Column(name = "cli_data_nasc")
-	private Date data_nasc;
+	private Date data_nasc = new Date();
 	@Column(name = "cli_rua")
 	private String rua;
 	@Column(name = "cli_bairro")

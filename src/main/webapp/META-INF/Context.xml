@@ -3,11 +3,12 @@
 <Context reloadable="true">
 	<Resource name="jdbc/BDLojaVirtual"
 	auth="Container"
-	type="javax.sql.DataSouce"
+	type="javax.sql.DataSource"
 	maxActive="100"
 	maxIdle="30"
 	maxWait="10000"
 	username="postgres"
-	password="123"
+	password="123456"
+	driverClassName="org.postgresql.Driver"
 	url="jdbc:postgresql://localhost:5432/BDLojaVirtual?autoReconnet=true"/>
 </Context>
