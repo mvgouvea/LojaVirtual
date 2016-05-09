@@ -18,7 +18,7 @@
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="BDLojaVirtualDataSource"
-				authorities-by-username-query="SELECT cli_nome, 'ROLE_ADMINISTRADOR'
+				authorities-by-username-query="SELECT cli_nome, 'ROLE_ADMINSTRADOR'
 																	FROM cliente
 																	WHERE cli_email = ?"
 				users-by-username-query="SELECT cli_email, cli_senha, '1' FROM cliente WHERE cli_email = ?" />

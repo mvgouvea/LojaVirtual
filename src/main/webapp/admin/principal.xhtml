@@ -16,16 +16,16 @@
 	</h1>
 	
 	<h:form>
-		<lu>
-			<li><h:commandButton value="Produto" action="/admin/lista_produto" /> </li>
-			<li><h:commandButton value="Cliente" action="/admin/lista_cliente" /> </li>
+		<ul>
+			<li><h:commandLink value="Produto" action="/admin/lista_produto" /> </li>
+			<li><h:commandLink value="Cliente" action="/admin/lista_cliente" /> </li>
 		
 			<li> 
 				<h:outputLink
 					onclick="document.location='#{request.contextPath}/j_spring_security_logout'">
 					Logout
 				</h:outputLink> </li>
-		</lu>
+		</ul>
 	</h:form>
 </h:body>
 </html>

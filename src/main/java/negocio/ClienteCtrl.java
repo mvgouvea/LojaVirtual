@@ -83,4 +83,9 @@ public class ClienteCtrl implements Serializable{
 		return "form_cliente";
 	}
 	
+	public String actionPaginaInicial(){
+		
+		return "index";
+	}
+	
 }
