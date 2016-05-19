@@ -18,6 +18,7 @@ public class ProdutoDAO implements Serializable{
 		Transaction t = sessao.beginTransaction();
 		sessao.save(produto);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static void alterar(Produto produto){
@@ -25,6 +26,7 @@ public class ProdutoDAO implements Serializable{
 		Transaction t = sessao.beginTransaction();
 		sessao.update(produto);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static void excluir(Produto produto){
@@ -32,6 +34,7 @@ public class ProdutoDAO implements Serializable{
 		Transaction t = sessao.beginTransaction();
 		sessao.delete(produto);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static List<Produto> listagem(){

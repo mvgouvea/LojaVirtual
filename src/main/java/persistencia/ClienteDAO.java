@@ -18,6 +18,7 @@ public class ClienteDAO implements Serializable {
 		Transaction t = sessao.beginTransaction();
 		sessao.save(cliente);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static void alterar(Cliente cliente){
@@ -25,6 +26,7 @@ public class ClienteDAO implements Serializable {
 		Transaction t = sessao.beginTransaction();
 		sessao.merge(cliente);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static void excluir(Cliente cliente){
@@ -32,18 +34,23 @@ public class ClienteDAO implements Serializable {
 		Transaction t = sessao.beginTransaction();
 		sessao.delete(cliente);
 		t.commit();
+		sessao.close();
 	}
 	
 	public static List<Cliente> listagem(){
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Query consulta = sessao.createQuery("from Cliente");
-		return consulta.list();
+		List lista = consulta.list();
+		sessao.close();
+		return lista;
 	}
 	
 	public static Cliente pesqId(int valor){
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Query consulta = sessao.createQuery("from Cliente where codigo =:parametro");
 		consulta.setInteger("parametro", valor);
-		return (Cliente) consulta.uniqueResult();
+		Cliente cliente = (Cliente) consulta.uniqueResult();
+		sessao.close();
+		return cliente;
 	}
 }

@@ -27,3 +27,12 @@ create table fone (
 	fon_descricao	varchar(30),
 	constraint rel_cliente_fone foreign key (cli_id) references cliente (cli_id)
 );
+
+create table forma_pgto(
+	fgt_id serial primary key,
+	fgt_descricao varchar(20),
+	fgt_num_max_parc integer,
+	fgt_intevalo_dias integer,
+	fgt_percentual_acres float
+
+);

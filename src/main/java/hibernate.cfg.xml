@@ -36,6 +36,7 @@
 		<mapping class="beans.Produto"/>
 		<mapping class="beans.Cliente"/>
 		<mapping class="beans.Fone"/>
+		<mapping class="beans.FormaPgto"/>
 	</session-factory>
 </hibernate-configuration>
 	
